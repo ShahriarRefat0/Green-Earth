@@ -1,0 +1,49 @@
+*{
+  font-family: "Inter", sans-serif;
+}
+
+.active{
+width: 100%;
+font-weight: 400;
+background-color: #1ec45b;
+color: white;
+font-size: 16px;
+padding: 5px;
+transition: all 0.2s ease;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+border-radius: 0.375rem;
+}
+
+
+
+@keyframes glow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.before\:animate-glow {
+  animation: glow 3s ease infinite;
+  background-size: 300% 300%;
+}
+
+
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+  
+    .hide-scrollbar::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }

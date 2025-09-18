@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Earth</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <!-- tailwind & daisyUI link-->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- css link -->
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header>
+    <nav class="bg-[#15803D]">
+      <div class="navbar w-11/12 mx-auto">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="white">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
+            </div>
+            <ul tabindex="0"
+              class="menu menu-sm dropdown-content  bg-[#15803D] z-1 mt-3 w-52 p-2 font-medium text-white shadow">
+              <li><a>About</a></li>
+              <li><a>Gallery</a></li>
+              <li><a>Plant a Tree</a></li>
+              <li class="dropdown">
+                <details id="categories-container-Ph">
+                  <summary>Categories</summary>
+              <li id="all-category-ph" onclick="loadPlants()" class="bg-[balck] active"><a>All Categories</a></li>
+              </details>
+              </li>
+              <a class="sm:hidden block border-none rounded-full text-xs text-[#15803D] bg-[#FACC15] 
+                       px-3 py-1 text-center max-w-[120px] 
+                       relative overflow-hidden transition-all duration-300 
+                       hover:scale-105 hover:shadow-lg 
+                       before:absolute before:-inset-1 before:rounded-full 
+                       before:animate-glow before:bg-gradient-to-r before:from-red-400 before:via-yellow-300 before:to-green-400 
+                       before:opacity-70 before:blur-xl before:z-[-1]">
+                Plant a Tree
+              </a>
+
+            </ul>
+
+          </div>
+          <a class="text-white font-bold text-xl">Green Earth</a>
+        </div>
+        <div class="navbar-center hidden  lg:flex">
+          <ul class="menu menu-horizontal px-1 font-medium text-white">
+            <li><a>About</a></li>
+            <li><a>Gallery</a></li>
+            <li><a>Plant a Tree</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <span id="mobile-cart-btn" class="text-white sm:hidden block px-3"><i
+              class="fa-solid fa-cart-shopping"></i></span>
+          <a
+            class="hidden sm:block btn border-none rounded-4xl text-[#15803D] bg-[#FACC15] px-4 py-2 relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg before:absolute before:-inset-1 before:rounded-4xl before:animate-glow before:bg-gradient-to-r before:from-red-400 before:via-yellow-300 before:to-green-400 before:opacity-70 before:blur-xl before:z-[-1]">
+            Plant a Tree
+          </a>
+
+        </div>
+      </div>
+    </nav>
+
+    <section class="bg-[#CFF0DC] flex justify-between">
+      <img class="sm:w-[400px] w-[100px] h-auto" src="./assets/hero-leaf1.png" alt="">
+      <div class="flex flex-col justify-center items-center text-center gap-2 py-2">
+        <h1 class="sm:text-3xl text-xl font-bold">Plant a Tree, Grow a Future</h1>
+        <p class="text-[#1F2937] sm:text-base text-xs">Join our mission to plant 1 million trees and make the Earth
+          greener for future
+          generations.</p>
+        <div class="">
+          <a
+            class="btn border-none rounded-4xl text-[#15803D] bg-[#FACC15] px-4 py-2 
+                   relative overflow-hidden transition-all duration-300 
+                   hover:scale-105 hover:shadow-lg 
+                   before:absolute before:-inset-1 before:rounded-4xl 
+                   before:animate-glow before:bg-gradient-to-r before:from-red-400 before:via-yellow-300 before:to-green-400 before:opacity-70 before:blur-xl before:z-[-1]">Get
+            Involved</a>
+        </div>
+      </div>
+      <img class="sm:w-[400px] w-[100px] h-auto" src="./assets/hero-leaf2.png" alt="">
+    </section>
+  </header>
+
+
+  <main>
+    <!-- choices section -->
+    <section id="choices-section" class="bg-[#F0FDF4] sm:pt-24 pt-10">
+      <section id="spinner" class="flex justify-center items-center p-10 hidden"><span
+          class="loading loading-dots loading-xl"></span></section>
+      <h1 class="text-center sm:text-3xl text-xl font-bold sm:mb-10 mb-5">Choose Your Trees</h1>
+      <section class="w-11/12 mx-auto grid grid-cols-12 gap-4">
+
+
+
+        <!-- categories section -->
+        <section class="sm:col-span-2 sm:block hidden">
+          <h2 class="text-xl font-bold sm:px-2 sm:pb-4">Categories</h2>
+          <div class=" flex flex-col sm:gap-3 text-[#1F2937] sm:text-base text-xs">
+            <a id="all-category-pc" onclick="loadPlants()"
+              class="my-2 hover:shadow-md transition hover:opacity-50 hover:text-lg hover:bg-[#1ec45b]  w-full hover:text-white p-2 rounded-md font-normal">All
+              Trees</a>
+          </div>
+          <div id="categories-container" class=" flex flex-col sm:gap-3 text-[#1F2937] sm:text-base text-xs">
+
+          </div>
+
+        </section>
+
+
+        <!--plants details- modal -->
+        <dialog id="details_modal" class="modal">
+          <div class="modal-box">
+            <form method="dialog">
+              <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                ✕
+              </button>
+            </form>
+            <div id="details-container">
+
+            </div>
+          </div>
+          </div>
+        </dialog>
+
+        <!-- cart section -->
+        <section
+          class="sm:col-span-8 col-span-12 max-h-236 overflow-hidden overflow-y-auto hide-scrollbar flex justify-center sm:p-2 p-10">
+          <div id="plants-container" class="grid sm:grid-cols-3 grid-cols-1 gap-4 mx-auto">
+
+          </div>
+        </section>
+
+        <!-- add cart section -->
+        <aside id="cart-container" class="sm:col-span-2 bg-white rounded-xl sm:p-4 p-2 opacity-0 translate-x-full transition-all duration-500 ease-in-out sm:max-h-160 hidden
+          fixed top-0 right-0 h-full w-64 z-50 sm:static sm:w-auto sm:h-auto">
+          <div class="flex justify-between">
+            <h2 class="sm:text-lg text-sm font-bold pb-3">Your Cart</h2>
+            <span id="close-cart"><i class="fa-solid fa-xmark cursor-pointer"></i></span>
+          </div>
+
+          <div>
+            <div id="add-cart-container">
+
+            </div>
+            <div id="price-container"
+              class="hidden font-semibold text-[#1F2937] border-t border-gray-300 flex justify-between sm:text-base text-sm">
+              <p>Total</p>
+              <p>৳<span id="total-price">0</span></p>
+            </div>
+          </div>
+        </aside>
+
+      </section>
+
+
+      <!-- about section -->
+      <section class="sm:w-11/12 mx-auto mb-9 sm:py-24 p-10">
+        <h2 class="text-center sm:text-3xl text-xl font-bold sm:mb-10 mb-5">About the Campaign</h2>
+        <div class="flex justify-center sm:flex-row flex-col items-center gap-7">
+          <div><img class="sm:w-[530px] w-[300px]" src="./assets/about.png" alt=""></div>
+          <div class="sm:max-w-[530px] text-left space-y-5 text-sm text-gray-500 font-medium">
+            <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start,
+              we’ve planted
+              over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for
+              wildlife, and
+              combat global warming.</p>
+            <ul class="list-disc list-inside">
+              <li>Restoration of natural habitats</li>
+              <li>Improvement of air quality</li>
+              <li>Support for local communities</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- impact section -->
+      <section class="bg-[#CFF0DC] ">
+        <div class="sm:w-11/12 mx-auto  sm:py-20 p-10">
+          <h2 class="text-center sm:text-3xl text-xl font-bold sm:mb-10 mb-5">Our Impact</h2>
+          <div class="flex justify-center items-center sm:gap-10 gap-5 sm:flex-row flex-col">
+            <div class="sm:w-[500px] w-[350px] p-10 bg-white rounded-xl text-center 
+                        transition duration-300 transform hover:scale-105 
+                        hover:shadow-[0_0_25px_rgba(21,128,61,0.6)] hover:bg-[#f9fff9]">
+              <h2 class="text-[#15803D] font-semibold text-xl">500K+</h2>
+              <p class="text-xs text-gray-500">Trees Planted</p>
+            </div>
+            <div class="sm:w-[500px] w-[350px] p-10 bg-white rounded-xl text-center 
+                        transition duration-300 transform hover:scale-105 
+                        hover:shadow-[0_0_25px_rgba(21,128,61,0.6)] hover:bg-[#f9fff9]">
+              <h2 class="text-[#15803D] font-semibold text-xl">120+</h2>
+              <p class="text-xs text-gray-500">Communities Involved</p>
+            </div>
+
+            <div class="sm:w-[500px] w-[350px] p-10 bg-white rounded-xl text-center 
+                        transition duration-300 transform hover:scale-105 
+                        hover:shadow-[0_0_25px_rgba(21,128,61,0.6)] hover:bg-[#f9fff9]">
+              <h2 class="text-[#15803D] font-semibold text-xl">30+</h2>
+              <p class="text-xs text-gray-500">Countries Reached</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+
+    <!-- plant today section -->
+
+    <section class="bg-[#166534]">
+      <div class="flex justify-center items-center flex-col py-10">
+        <h2 class="sm:text-3xl text-xl font-bold sm:mb-10 mb-5 text-white">Plant a Tree Today</h2>
+        <div class="bg-[#15803D] sm:w-[40%] w-[80%] p-5 space-y-5 rounded-xl">
+          <label class="input validator w-full">
+            <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </g>
+            </svg>
+            <input type="text" required placeholder="Your Name" pattern="[A-Za-z][A-Za-z0-9\-]*" minlength="3"
+              maxlength="30" title="Only letters, numbers or dash" />
+          </label>
+          <label class="input validator w-full">
+            <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor">
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </g>
+            </svg>
+            <input type="email" placeholder="Your Email Address" required />
+          </label>
+          <select class="select validato w-full" required>
+            <option disabled selected value="">Number of Trees</option>
+            <option>1 Plant 300 tk</option>
+            <option>2 Plant 500 tk</option>
+            <option>3 Plant 7500 tk</option>
+            <option>4 Plant 1000 tk</option>
+            <option>5 Plant 1200 tk</option>
+          </select>
+          <button class="btn bg-[#FACC15] text-[#15803D] rounded-3xl w-full border-none 
+                 hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.7)] transition duration-300"
+            type="submit">
+            Donate Now
+          </button>
+        </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="bg-[#14532D] py-5 text-center">
+      <p class="text-[#FFFFFF]">© 2025 Green Earth. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
